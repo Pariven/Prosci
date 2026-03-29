@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from "@/lib/language-context"
+
 export function StatsSection() {
+  const { t } = useLanguage()
+
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
@@ -6,12 +12,12 @@ export function StatsSection() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div>
             <h2 className="text-3xl md:text-4xl text-[#1e3a5f] leading-relaxed">
-              We empower leaders and teams to succeed at change.
+              {t('stats.heading')}
             </h2>
           </div>
           <div className="flex items-center">
             <p className="text-[#5b4b82] leading-relaxed">
-              No matter the change you are facing, from the introduction of a new system to an office move, we are on the journey to success with you. We are your partner in driving lasting and effective change that works for your people.
+              {t('stats.description')}
             </p>
           </div>
         </div>
@@ -19,16 +25,16 @@ export function StatsSection() {
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <StatItem 
-            number="25+"
-            label="YEARS OF CHANGE MANAGEMENT RESEARCH"
+            number={t('stats.stat1Number')}
+            label={t('stats.stat1Label')}
           />
           <StatItem 
-            number="267k+"
-            label="PEOPLE EMPOWERED TO DRIVE CHANGE SUCCESS"
+            number={t('stats.stat2Number')}
+            label={t('stats.stat2Label')}
           />
           <StatItem 
-            number="80"
-            label="COUNTRIES WITH PROSCI TEAMS AND PARTNERS"
+            number={t('stats.stat3Number')}
+            label={t('stats.stat3Label')}
           />
         </div>
       </div>

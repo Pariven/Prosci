@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Home",
+    "changeManagement": "Change Management",
+    "whatIsChangeManagement": "What Is Change Management",
+    "whyChangeManagement": "Why Change Management",
+    "methodology": "Methodology",
+    "posciMethodologyOverview": "Prosci Methodology Overview",
+    "pctModel": "PCT Model",
+    "adkarModel": "ADKAR Model",
+    "threePhaseProcess": "3-Phase Process",
+    "solutions": "Solutions",
+    "solutionsOverview": "Solutions Overview",
+    "solutionsForIndividuals": "Solutions For Individuals",
+    "certificationPrograms": "Certification Programs",
+    "roleBasedCertificationPrograms": "Role-Based Certification Programs",
+    "membership": "Membership",
+    "solutionsForOrganizations": "Solutions For Organizations",
+    "enterpriseChangeManagementBootCamp": "Enterprise Change Management Boot Camp",
+    "advisory": "Advisory",
+    "advisoryServices": "Advisory Services",
+    "acmc": "ACMC",
+    "resources": "Resources",
+    "podcast": "Podcast (UNSCRIPTED: Change Management @ Work)",
+    "webinars": "Webinars",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "aboutProsci": "About Prosci Malaysia (KPINTAR X PROSCI)",
+    "whyChooseProsci": "Why Choose Prosci",
+    "training": "Training",
+    "storeAccount": "Store Account",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Change Done Right",
+    "subtitle": "If you want success, you need the right partner.",
+    "cta": "Discover Our Solutions"
+  },
+  "stats": {
+    "heading": "We empower leaders and teams to succeed at change.",
+    "description": "No matter the change you are facing, from the introduction of a new system to an office move, we are on the journey to success with you. We are your partner in driving lasting and effective change that works for your people.",
+    "stat1Number": "25+",
+    "stat1Label": "YEARS OF CHANGE MANAGEMENT RESEARCH",
+    "stat2Number": "267k+",
+    "stat2Label": "PEOPLE EMPOWERED TO DRIVE CHANGE SUCCESS",
+    "stat3Number": "80",
+    "stat3Label": "COUNTRIES WITH PROSCI TEAMS AND PARTNERS"
+  },
+  "common": {
+    "english": "English",
+    "bahasaMelayu": "Bahasa Melayu",
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "viewAll": "View All"
+  }
+}

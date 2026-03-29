@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Utama",
+    "changeManagement": "Pengurusan Perubahan",
+    "whatIsChangeManagement": "Apakah Pengurusan Perubahan",
+    "whyChangeManagement": "Mengapa Pengurusan Perubahan",
+    "methodology": "Metodologi",
+    "posciMethodologyOverview": "Gambaran Keseluruhan Metodologi Prosci",
+    "pctModel": "Model PCT",
+    "adkarModel": "Model ADKAR",
+    "threePhaseProcess": "Proses 3 Fasa",
+    "solutions": "Penyelesaian",
+    "solutionsOverview": "Gambaran Keseluruhan Penyelesaian",
+    "solutionsForIndividuals": "Penyelesaian Untuk Individu",
+    "certificationPrograms": "Program Pensijilan",
+    "roleBasedCertificationPrograms": "Program Pensijilan Berdasarkan Peranan",
+    "membership": "Keahlian",
+    "solutionsForOrganizations": "Penyelesaian Untuk Organisasi",
+    "enterpriseChangeManagementBootCamp": "Kem Asas Pengurusan Perubahan Perusahaan",
+    "advisory": "Nasihat",
+    "advisoryServices": "Perkhidmatan Nasihat",
+    "acmc": "ACMC",
+    "resources": "Sumber",
+    "podcast": "Podcast (UNSCRIPTED: Change Management @ Work)",
+    "webinars": "Webinar",
+    "aboutUs": "Tentang Kami",
+    "contactUs": "Hubungi Kami",
+    "aboutProsci": "Tentang Prosci Malaysia (KPINTAR X PROSCI)",
+    "whyChooseProsci": "Mengapa Pilih Prosci",
+    "training": "Latihan",
+    "storeAccount": "Akaun Kedai",
+    "language": "Bahasa"
+  },
+  "hero": {
+    "title": "Perubahan Dilakukan Dengan Betul",
+    "subtitle": "Jika anda mahukan kejayaan, anda memerlukan mitra yang tepat.",
+    "cta": "Temukan Penyelesaian Kami"
+  },
+  "stats": {
+    "heading": "Kami memberdayakan pemimpin dan pasukan untuk berjaya dalam perubahan.",
+    "description": "Tidak kira perubahan apa yang anda hadapi, dari pengenalan sistem baru hingga perpindahan pejabat, kami dalam perjalanan menuju kejayaan bersama anda. Kami adalah mitra anda dalam mendorong perubahan yang kekal dan berkesan yang berfungsi untuk rakyat anda.",
+    "stat1Number": "25+",
+    "stat1Label": "TAHUN PENYELIDIKAN PENGURUSAN PERUBAHAN",
+    "stat2Number": "267k+",
+    "stat2Label": "ORANG YANG DIBERDAYAKAN UNTUK MENDORONG KEJAYAAN PERUBAHAN",
+    "stat3Number": "80",
+    "stat3Label": "NEGARA DENGAN PASUKAN DAN RAKAN KONGSI PROSCI"
+  },
+  "common": {
+    "english": "English",
+    "bahasaMelayu": "Bahasa Melayu",
+    "learnMore": "Pelajari Lagi",
+    "explore": "Jelajahi",
+    "viewAll": "Lihat Semua"
+  }
+}

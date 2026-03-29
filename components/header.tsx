@@ -4,9 +4,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, ChevronRight, Calendar, ShoppingCart, Globe, User, Menu, X } from "lucide-react"
 import { useState } from "react"
+import { useLanguage } from "@/lib/language-context"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
 
   return (
     <header className="w-full">
@@ -14,14 +16,10 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-end gap-4 py-2">
           <Link href="#" className="flex items-center gap-2 text-sm hover:text-[#c4a052] transition-colors">
             <ShoppingCart className="w-4 h-4" />
-            <span className="hidden sm:inline">Store Account</span>
+            <span className="hidden sm:inline">{t('header.storeAccount')}</span>
             <ChevronDown className="w-3 h-3" />
           </Link>
-          <Link href="#" className="flex items-center gap-2 text-sm hover:text-[#c4a052] transition-colors">
-            <Globe className="w-4 h-4" />
-            <span className="hidden sm:inline">English</span>
-            <ChevronDown className="w-3 h-3" />
-          </Link>
+          <LanguageDropdown currentLanguage={language} onLanguageChange={setLanguage} t={t} />
           <Link href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-[#007b8a] hover:bg-[#007b8a] transition-colors">
             <User className="w-4 h-4" />
           </Link>
@@ -44,11 +42,11 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 items-center justify-start flex-nowrap gap-6 whitespace-nowrap min-w-0">
             <Link href="/" className="text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap shrink-0 leading-none">
-              Home
+              {t('header.home')}
             </Link>
-            <ChangeManagementDropdown />
-            <MethodologyDropdown />
-            <SolutionsDropdown />
+            <ChangeManagementDropdown t={t} />
+            <MethodologyDropdown t={t} />
+            <SolutionsDropdown t={t} />
             <Link
               href="https://aseanchangemanagementconference.com"
               target="_blank"
@@ -57,8 +55,8 @@ export function Header() {
             >
               ACMC
             </Link>
-            <ResourcesDropdown />
-            <AboutUsDropdown />
+            <ResourcesDropdown t={t} />
+            <AboutUsDropdown t={t} />
           </nav>
 
           <div className="hidden md:flex items-center shrink-0">
@@ -67,7 +65,7 @@ export function Header() {
               className="flex items-center gap-2 bg-[#007b8a] text-white px-4 py-2 rounded text-sm font-medium hover:bg-[#006070] transition-colors"
             >
               <Calendar className="w-4 h-4" />
-              Training
+              {t('header.training')}
             </Link>
           </div>
 
@@ -90,22 +88,22 @@ export function Header() {
               className="block text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Home
+              {t('header.home')}
             </Link>
-            <MobileMenuDropdown title="Change Management" links={[
-              { label: "What Is Change Management", href: "/what-is-change-management" },
-              { label: "Why Change Management", href: "/why-change-management" },
+            <MobileMenuDropdown title={t('header.changeManagement')} links={[
+              { label: t('header.whatIsChangeManagement'), href: "/what-is-change-management" },
+              { label: t('header.whyChangeManagement'), href: "/why-change-management" },
             ]} />
-            <MobileMenuDropdown title="Methodology" links={[
-              { label: "Prosci Methodology Overview", href: "#" },
-              { label: "PCT Model", href: "#" },
-              { label: "ADKAR Model", href: "#" },
-              { label: "3-Phase Process", href: "#" },
+            <MobileMenuDropdown title={t('header.methodology')} links={[
+              { label: t('header.posciMethodologyOverview'), href: "#" },
+              { label: t('header.pctModel'), href: "#" },
+              { label: t('header.adkarModel'), href: "#" },
+              { label: t('header.threePhaseProcess'), href: "#" },
             ]} />
-            <MobileMenuDropdown title="Solutions" links={[
-              { label: "Solutions For Individuals", href: "/solutions#individuals" },
-              { label: "Solutions For Organizations", href: "/solutions#organizations" },
-              { label: "Advisory Services", href: "#" },
+            <MobileMenuDropdown title={t('header.solutions')} links={[
+              { label: t('header.solutionsForIndividuals'), href: "/solutions#individuals" },
+              { label: t('header.solutionsForOrganizations'), href: "/solutions#organizations" },
+              { label: t('header.advisoryServices'), href: "#" },
             ]} />
             <Link
               href="https://aseanchangemanagementconference.com"
@@ -116,14 +114,14 @@ export function Header() {
             >
               ACMC
             </Link>
-            <MobileMenuDropdown title="Resources" links={[
-              { label: "Podcast (UNSCRIPTED: Change Management @ Work)", href: "/resources#podcast" },
-              { label: "Webinars", href: "/resources#webinars" },
+            <MobileMenuDropdown title={t('header.resources')} links={[
+              { label: t('header.podcast'), href: "/resources#podcast" },
+              { label: t('header.webinars'), href: "/resources#webinars" },
             ]} />
-            <MobileMenuDropdown title="About Us" links={[
-              { label: "Contact Us", href: "#" },
-              { label: "About Prosci Malaysia (KPINTAR X PROSCI)", href: "/about-us" },
-              { label: "Why Choose Prosci", href: "#" },
+            <MobileMenuDropdown title={t('header.aboutUs')} links={[
+              { label: t('header.contactUs'), href: "#" },
+              { label: t('header.aboutProsci'), href: "/about-us" },
+              { label: t('header.whyChooseProsci'), href: "#" },
             ]} />
             <div className="pt-2 md:hidden">
               <Link
@@ -131,7 +129,7 @@ export function Header() {
                 className="flex items-center gap-2 bg-[#007b8a] text-white px-4 py-2 rounded text-sm font-medium hover:bg-[#006070] transition-colors w-full justify-center"
               >
                 <Calendar className="w-4 h-4" />
-                Training
+                {t('header.training')}
               </Link>
             </div>
           </nav>
@@ -170,30 +168,35 @@ function MobileMenuDropdown({ title, links }: { title: string; links: Array<{ la
   )
 }
 
-function MethodologyDropdown() {
+function MethodologyDropdown({ t }: { t: (key: string) => string }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const methodologyLinks = ["Prosci Methodology Overview", "PCT Model", "ADKAR Model", "3-Phase Process"]
+  const methodologyLinks = [
+    { key: 'header.posciMethodologyOverview', href: "#" },
+    { key: 'header.pctModel', href: "#" },
+    { key: 'header.adkarModel', href: "#" },
+    { key: 'header.threePhaseProcess', href: "#" },
+  ]
 
   return (
     <div className="relative shrink-0" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="inline-flex items-center gap-1 text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap leading-none">
-        Methodology
+        {t('header.methodology')}
         <ChevronDown className="w-4 h-4" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full left-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[280px] z-50">
           <div className="px-4 py-2 border-b border-gray-100">
-            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">Methodology</span>
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.methodology')}</span>
           </div>
 
           <div className="px-4 py-4">
             <ul className="space-y-2">
               {methodologyLinks.map((link) => (
-                <li key={link}>
-                  <Link href="#" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                    {link}
+                <li key={link.key}>
+                  <Link href={link.href} className="text-gray-600 hover:text-[#c4a052] transition-colors">
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -205,32 +208,32 @@ function MethodologyDropdown() {
   )
 }
 
-function ResourcesDropdown() {
+function ResourcesDropdown({ t }: { t: (key: string) => string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="relative shrink-0" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="inline-flex items-center gap-1 text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap leading-none">
-        Resources
+        {t('header.resources')}
         <ChevronDown className="w-4 h-4" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full left-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[260px] z-50">
           <div className="px-4 py-2 border-b border-gray-100">
-            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">Resources</span>
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.resources')}</span>
           </div>
 
           <div className="px-4 py-4">
             <ul className="space-y-2">
               <li>
                 <Link href="/resources#podcast" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                  Podcast (UNSCRIPTED: Change Management @ Work)
+                  {t('header.podcast')}
                 </Link>
               </li>
               <li>
                 <Link href="/resources#webinars" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                  Webinars
+                  {t('header.webinars')}
                 </Link>
               </li>
             </ul>
@@ -241,37 +244,37 @@ function ResourcesDropdown() {
   )
 }
 
-function AboutUsDropdown() {
+function AboutUsDropdown({ t }: { t: (key: string) => string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="relative shrink-0" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="inline-flex items-center gap-1 text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap leading-none">
-        About{"\u00A0"}Us
+        {t('header.aboutUs')}
         <ChevronDown className="w-4 h-4" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full right-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[320px] z-50">
           <div className="px-4 py-2 border-b border-gray-100">
-            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">About Us</span>
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.aboutUs')}</span>
           </div>
 
           <div className="px-4 py-4">
             <ul className="space-y-2">
               <li>
                 <Link href="#" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                  Contact Us
+                  {t('header.contactUs')}
                 </Link>
               </li>
               <li>
                 <Link href="/about-us" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                  About Prosci Malaysia (KPINTAR X PROSCI)
+                  {t('header.aboutProsci')}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                  Why Choose Prosci
+                  {t('header.whyChooseProsci')}
                 </Link>
               </li>
             </ul>
@@ -282,35 +285,25 @@ function AboutUsDropdown() {
   )
 }
 
-function SolutionsDropdown() {
+function SolutionsDropdown({ t }: { t: (key: string) => string }) {
   const [isOpen, setIsOpen] = useState(false)
-
-  const individualsLinks = [
-    "Certification Programs",
-    "Role-Based Certification Programs",
-    "Membership",
-  ]
-
-  const organizationsLinks = ["Enterprise Change Management Boot Camp"]
-
-  const advisoryLinks = ["Advisory Services"]
 
   return (
     <div className="relative shrink-0" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="inline-flex items-center gap-1 text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap leading-none">
-        Solutions
+        {t('header.solutions')}
         <ChevronDown className="w-4 h-4" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full left-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[780px] z-50">
           <div className="px-4 py-2 border-b border-gray-100">
-            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">Solutions</span>
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.solutions')}</span>
           </div>
 
           <div className="px-4 py-3 border-b border-gray-100">
             <Link href="/solutions" className="flex items-center gap-2 text-[#1e3a5f] hover:text-[#c4a052] py-1 font-medium">
-              Solutions Overview
+              {t('header.solutionsOverview')}
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
@@ -318,49 +311,33 @@ function SolutionsDropdown() {
           <div className="grid grid-cols-3 gap-6 px-4 py-4">
             <div>
               <Link href="/solutions#individuals" className="flex items-center gap-2 text-[#007b8a] font-semibold mb-3 hover:text-[#c4a052]">
-                Solutions For Individuals
+                {t('header.solutionsForIndividuals')}
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <ul className="space-y-2">
-                {individualsLinks.map((link) => (
-                  <li key={link}>
-                    <Link href="/solutions#individuals" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                      {link}
-                    </Link>
-                  </li>
-                ))}
+                <li><Link href="/solutions#individuals" className="text-gray-600 hover:text-[#c4a052] transition-colors">{t('header.certificationPrograms')}</Link></li>
+                <li><Link href="/solutions#individuals" className="text-gray-600 hover:text-[#c4a052] transition-colors">{t('header.roleBasedCertificationPrograms')}</Link></li>
+                <li><Link href="/solutions#individuals" className="text-gray-600 hover:text-[#c4a052] transition-colors">{t('header.membership')}</Link></li>
               </ul>
             </div>
 
             <div>
               <Link href="/solutions#organizations" className="flex items-center gap-2 text-[#007b8a] font-semibold mb-3 hover:text-[#c4a052]">
-                Solutions For Organizations
+                {t('header.solutionsForOrganizations')}
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <ul className="space-y-2">
-                {organizationsLinks.map((link) => (
-                  <li key={link}>
-                    <Link href="/solutions#organizations" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                      {link}
-                    </Link>
-                  </li>
-                ))}
+                <li><Link href="/solutions#organizations" className="text-gray-600 hover:text-[#c4a052] transition-colors">{t('header.enterpriseChangeManagementBootCamp')}</Link></li>
               </ul>
             </div>
 
             <div>
               <Link href="/solutions#advisory" className="flex items-center gap-2 text-[#007b8a] font-semibold mb-3 hover:text-[#c4a052]">
-                Advisory
+                {t('header.advisory')}
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <ul className="space-y-2">
-                {advisoryLinks.map((link) => (
-                  <li key={link}>
-                    <Link href="/solutions#advisory" className="text-gray-600 hover:text-[#c4a052] transition-colors">
-                      {link}
-                    </Link>
-                  </li>
-                ))}
+                <li><Link href="/solutions#advisory" className="text-gray-600 hover:text-[#c4a052] transition-colors">{t('header.advisoryServices')}</Link></li>
               </ul>
             </div>
           </div>
@@ -370,37 +347,85 @@ function SolutionsDropdown() {
   )
 }
 
-function ChangeManagementDropdown() {
+function ChangeManagementDropdown({ t }: { t: (key: string) => string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="relative shrink-0" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="inline-flex items-center gap-1 text-[#1e3a5f] font-medium hover:text-[#c4a052] transition-colors whitespace-nowrap leading-none">
-        Change{"\u00A0"}Management
+        {t('header.changeManagement')}
         <ChevronDown className="w-4 h-4" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full left-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[360px] z-50">
           <div className="px-4 py-2 border-b border-gray-100">
-            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">Change Management</span>
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.changeManagement')}</span>
           </div>
 
           <div className="px-4 py-4">
             <ul className="space-y-2">
               <li>
                 <Link href="/what-is-change-management" className="flex items-center gap-2 text-[#1e3a5f] hover:text-[#c4a052] py-1 font-medium">
-                  What Is Change Management
+                  {t('header.whatIsChangeManagement')}
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </li>
               <li>
                 <Link href="/why-change-management" className="flex items-center gap-2 text-[#1e3a5f] hover:text-[#c4a052] py-1 font-medium">
-                  Why Change Management
+                  {t('header.whyChangeManagement')}
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function LanguageDropdown({ currentLanguage, onLanguageChange, t }: { currentLanguage: "EN" | "MS"; onLanguageChange: (lang: "EN" | "MS") => void; t: (key: string) => string }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const languages = [
+    { code: "EN", label: t('common.english') },
+    { code: "MS", label: t('common.bahasaMelayu') },
+  ] as const
+
+  const currentLabel = languages.find((lang) => lang.code === currentLanguage)?.label || t('common.english')
+
+  return (
+    <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+      <button className="flex items-center gap-2 text-sm hover:text-[#c4a052] transition-colors">
+        <Globe className="w-4 h-4" />
+        <span className="hidden sm:inline">{currentLabel}</span>
+        <ChevronDown className="w-3 h-3" />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-full right-0 mt-0 bg-white shadow-lg border border-gray-200 rounded-b-lg min-w-[180px] z-50">
+          <div className="px-4 py-2 border-b border-gray-100">
+            <span className="inline-block bg-[#c4a052] text-white text-xs px-2 py-1 rounded">{t('header.language')}</span>
+          </div>
+
+          <div className="px-4 py-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  onLanguageChange(lang.code)
+                  setIsOpen(false)
+                }}
+                className={`block w-full text-left py-2 px-2 rounded transition-colors ${
+                  currentLanguage === lang.code
+                    ? "bg-[#c4a052] text-white font-medium"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-[#c4a052]"
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
           </div>
         </div>
       )}
